@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
+const balanceController = require('../controllers/balances.controller')
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-    res.send('balances path');
-});
+//POST request
+router.post('/deposit/:accountId', balanceController.depositIntoBalance);
 
 module.exports = router;

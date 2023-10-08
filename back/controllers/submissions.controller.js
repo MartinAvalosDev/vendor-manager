@@ -48,7 +48,7 @@ const getSubmissionById = async (req, res) => {
     })
     if (buyer.balance >= submission.price) {
         await updateBuyer(buyer.id, buyer.balance, submission.price)
-    } else { res.status(400).send('Buyer balance is not enough to pay the submission') }
+    } else { return res.status(400).send('Buyer balance is not enough to pay the submission') }
     //find supplier and update
     let supplier = await Account.findOne({
         where: {
