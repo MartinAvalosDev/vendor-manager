@@ -17,18 +17,3 @@ const depositIntoBalance = async (req, res) => {
 module.exports = {
     depositIntoBalance
 }
-// const url = 'http://localhost:3001/submissions/unpaid'
-// let submissionsToPay
-// await fetch(url)
-//     .then(response => {
-//         if (!response.ok) {
-//             throw new Error(`ERROR: ${response.status}`);
-//         }
-//         return response.json();
-//     })
-//     .then(data => {
-//         submissionsToPay = data
-//     })
-//     .catch(error => {
-//         console.error('Error: ', error);
-//     });
