@@ -1,7 +1,7 @@
 const { Account } = require("../models/accounts.model")
 const { Agreement } = require("../models/agreement.model")
 const { Submission } = require("../models/submissions.model")
-const { updateBuyer, updateSupplier } = require("../utils/utils")
+const { updateBuyer, updateSupplier, updateSubmissionPaid } = require("../utils/utils")
 
 //all submissions
 const getAllSubmissions = async (req, res) => {
@@ -30,7 +30,7 @@ const getUnpaidSubmissions = async (req, res) => {
 }
 
 
-const getSubmissionById = async (req, res) => {
+const paySubmissionById = async (req, res) => {
     let id = req.params.submission_id
     let submission = await Submission.findOne({
         include: [{
@@ -57,6 +57,8 @@ const getSubmissionById = async (req, res) => {
     })
     if (supplier) await updateSupplier(supplier.id, supplier.balance, submission.price)
 
+    //update paid status, now the submission is paid and is not going to appear in /submissions/unpaid anymore
+    await updateSubmissionPaid(id)
     res.status(200).send(submission)
 }
 
@@ -64,5 +66,5 @@ const getSubmissionById = async (req, res) => {
 module.exports = {
     getAllSubmissions,
     getUnpaidSubmissions,
-    getSubmissionById
+    paySubmissionById
 }

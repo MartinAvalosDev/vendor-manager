@@ -7,6 +7,6 @@ router.get('/', submissionController.getAllSubmissions);
 router.get('/unpaid', submissionController.getUnpaidSubmissions);
 
 //POST request
-router.post('/:submission_id/pay', submissionController.getSubmissionById);
+router.post('/:submission_id/pay', submissionController.paySubmissionById);
 
 module.exports = router;

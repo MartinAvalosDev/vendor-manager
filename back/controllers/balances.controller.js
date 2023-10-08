@@ -11,7 +11,7 @@ const depositIntoBalance = async (req, res) => {
     if (deposit > tenPercen) return res.status(400).send(`${percenError}, that amount is: ${tenPercen}`)
     await depositBalance(buyerId, deposit)
 
-    res.status(200).send('Buyer balance has been updated')
+    res.status(200).send(`You have deposited U$D${deposit} into Buyer ID: "${buyerId}" account`)
 }
 
 module.exports = {

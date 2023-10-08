@@ -58,9 +58,20 @@ async function percenValidation(buyerId) {
     return totalPrice * 0.10
 }
 
+async function updateSubmissionPaid(submissionId) {
+    await Submission.update({
+        paid: true
+    }, {
+        where: {
+            id: submissionId
+        }
+    })
+}
+
 module.exports = {
     updateBuyer,
     updateSupplier,
     percenValidation,
-    depositBalance
+    depositBalance,
+    updateSubmissionPaid
 }
