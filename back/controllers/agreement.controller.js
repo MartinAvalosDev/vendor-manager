@@ -12,14 +12,14 @@ const getAgreementByAccount = async (req, res) => {
 }
 
 const getAllAgreements = async (req, res) => {
-    let products = await Agreement.findAll({
+    let agreements = await Agreement.findAll({
         where: {
             status: {
                 [Orm.Op.not]: 'terminated'
             }
         }
     })
-    res.status(200).send(products)
+    res.status(200).send(agreements)
 }
 
 module.exports = {
