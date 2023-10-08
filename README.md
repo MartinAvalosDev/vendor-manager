@@ -1,4 +1,4 @@
-# Challlenge: Building a Node.js/Express.js App with REST API
+## Building a Node.js/Express.js App with REST API
 
 In this tutorial, we'll guide you through building a Node.js/Express.js app that serves a REST API. The app will handle accounts, agreements, and submissions. We will use SQLite as the database and Sequelize as the ORM to interact with it. Additionally, we'll include instructions for setting up the frontend using Next.js and demonstrate calls to the backend endpoints.
 
@@ -85,20 +85,5 @@ For the frontend development, we'll use Next.js to create a simple demonstration
 
 9. Create an admin page that shows the best profession using the `/admin/best-supplier-profession` API, and another page that shows the best buyers using the `/admin/best-buyers` API.
 
-## Going Extra Mile
 
-If you have extra time and want to impress, consider adding the following:
 
-- Write unit tests for your backend APIs using a testing framework like Jest.
-
-- Use transaction for inserts or updates.
-
-- Create a visually appealing frontend with custom styling using CSS or a UI library like Tailwind Css or Ant Design.
-
-- Implement authentication and user registration to secure certain parts of the application.
-
-- Add pagination and filtering options for the agreements and submissions list.
-
-## Submission
-
-Once you've completed the assignment, zip your repository (including the .git folder) and send it to the specified email address.
