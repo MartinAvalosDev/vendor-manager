@@ -2,9 +2,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const { db } = require('./lib/orm.js');
 
-var agreementsRouter = require('./routes/agreements.router');
+const agreementsRouter = require('./routes/agreements.router');
 const submissionsRouter = require('./routes/submissions.router')
+const balancesRouter = require('./routes/balances.router');
+const adminRouter = require('./routes/admin.router');
+
 
 // const swaggerUi = require('swagger-ui-express');
 // const swaggerDocument = require('./swagger.json');
@@ -17,6 +21,9 @@ const submissionsRouter = require('./routes/submissions.router')
 
 // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+db.authenticate()
+    .then(() => console.log('Database Connected'))
+    .catch(err => console.log('Error: ', err))
 
 var app = express();
 
@@ -25,9 +32,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/aggreements', agreementsRouter);
+app.use('/agreements', agreementsRouter);
 app.use('/submissions', submissionsRouter);
-app.use('/balances', submissionsRouter);
+app.use('/balances', balancesRouter);
+app.use('/balances', adminRouter);
 
 
 module.exports = app;

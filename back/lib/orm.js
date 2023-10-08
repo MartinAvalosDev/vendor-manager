@@ -5,7 +5,10 @@ const db = new Sequelize({
   storage: './database.sqlite3',
 });
 
+
 module.exports = {
   db,
   Orm: Sequelize,
 };
+
+

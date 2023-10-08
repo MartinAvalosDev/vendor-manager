@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
+const agreementController = require('../controllers/agreement.controller.js')
 
-/* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send('aggreements path');
-});
+/* GET agreements listing. */
+router.get('/', agreementController.getAllAgreements);
+
+/* GET agreements by id listing. */
+router.get('/:id', agreementController.getAgreementByAccount);
 
 module.exports = router;
