@@ -22,5 +22,5 @@ const Submission = db.define('Submission', {
 
 // Export the Submission model to be used in other parts of the application
 module.exports = {
-  Submission,
+  Submission
 };

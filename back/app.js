@@ -8,6 +8,7 @@ const agreementsRouter = require('./routes/agreements.router');
 const submissionsRouter = require('./routes/submissions.router')
 const balancesRouter = require('./routes/balances.router');
 const adminRouter = require('./routes/admin.router');
+const { Account } = require('./models/accounts.model.js');
 
 
 // const swaggerUi = require('swagger-ui-express');
@@ -35,7 +36,11 @@ app.use(cookieParser());
 app.use('/agreements', agreementsRouter);
 app.use('/submissions', submissionsRouter);
 app.use('/balances', balancesRouter);
-app.use('/balances', adminRouter);
+app.use('/admin', adminRouter);
+app.get('/accounts', async function (req, res) {
+    let accounts = await Account.findAll({})
+    res.send(accounts)
+})
 
 
 module.exports = app;

@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
+const submissionController = require('../controllers/submissions.controller.js')
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-    res.send('submissions path');
-});
+//GET requests
+router.get('/', submissionController.getAllSubmissions);
+router.get('/unpaid', submissionController.getUnpaidSubmissions);
+
+//POST request
+router.post('/:submission_id/pay', submissionController.getSubmissionById);
 
 module.exports = router;

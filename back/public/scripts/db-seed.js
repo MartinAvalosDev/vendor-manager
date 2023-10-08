@@ -1,4 +1,4 @@
-const { Agreement } = require('../../models/aggreement.model');
+const { Agreement } = require('../../models/agreement.model');
 const { Submission } = require('../../models/submissions.model');
 const { Account } = require('../../models/accounts.model');
 
